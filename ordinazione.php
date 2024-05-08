@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+if($_SESSION['logged']==true){
+	require "connect.php";
+	?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -7,17 +14,36 @@
 </head>
 <body>
 	<a href="home.html"><Button>Home</Button></a>
-	<a href="login.php"><Button>LogIn</Button></a><br>
-	<hr>
-	Ordina
-	<form action="ordinazione.php" method="post">
-		<input type="email" name="email" id="email" placeholder="Email" maxlength="50" required><br>
-		Data <input type="date" name="date" id="date" required>
-		Ora <input type="time" name="time" id="time" required><br>
-		<input type="number" name="count" id="count" placeholder="Numero panini" required> <br><br>
-		<input type="textarea" name="preferenze" id="preferenze" placeholder="Cosa desideri nel panino" required>
 
-		<input id="submitButton" type="submit" value="Ordina">
-	</form>
+	<form>
+			<select>
+				<?php
+				$query=mysqli_query($conn,"SELECT * FROM panini");
+				while ($row=mysqli_fetch_array($query)){
+					?><option value="<?php echo $row['id'];?>"><?php echo $row['nome'];?></option>
+					<?php
+				} ?>
+			</select>
+		</form>
+
 </body>
 </html>
+
+<?php }else{ ?>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+		<p href="login.php">sei stronzo non loggato</p>
+
+		
+	</body>
+	</html>
+
+<?php 
+	}
+?>
