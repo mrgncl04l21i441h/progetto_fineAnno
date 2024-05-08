@@ -38,6 +38,7 @@ if ($res->num_rows > 0) {
     $idUtente = $row['ID'];
     $_SESSION['idUtente'] = $idUtente;
     $_SESSION['logged'] = true;
+	header('location: ordinazione.php');
 } else {
     echo "Invalid username or password";
 }
