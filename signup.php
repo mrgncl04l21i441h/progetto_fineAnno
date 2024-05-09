@@ -6,12 +6,12 @@
 	<title>SignUp</title>
 </head>
 <body>
-    <a href="home.html"><Button>Home</Button></a>
+    <a href="index.html"><Button>Home</Button></a>
 	<a href="login.php"><Button>LogIn</Button></a>
 	<form action="signup.php" method="POST">
 		<input type="text" name="nome" placeholder="nome"required>
 		<input type="text" name="cognome" placeholder="cognome"required>
-        <input type="date" name="date" placeholder="date" required><br>
+        <input type="date" name="datanascita" placeholder="date" required><br>
         <input type="text" name="telefono" placeholder="telefono" required>
 		<input type="email" name="email" placeholder="email" required><br>
 		<input type="text" name="username" placeholder="username"required>
@@ -34,7 +34,7 @@
 		$username = $_POST['username'];
         $password = $_POST['password'];
     
-    $sql = "INSERT INTO Utente (nome, cognome, datanascita, telefono, email, username, password) 
+    $sql = "INSERT INTO utenti (nome, cognome, data_nascita, telefono, email, username, password) 
             VALUES ('$nome', '$cognome', '$datanascita', '$telefono', '$email', '$username', '$password')";
 
     if ($conn->query($sql) === TRUE) { 
@@ -42,7 +42,7 @@
     } else {
         echo "Errore inserimento: " . $conn->error;
     }
-
+    echo "<br>";
     echo "<button><a href='index.html'>Menu</a></button>";
 
     $conn->close();

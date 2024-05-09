@@ -6,7 +6,7 @@
 	<title>LogIn</title>
 </head>
 <body>
-	<a href="home.html"><Button>Home</Button></a>
+	<a href="index.html"><Button>Home</Button></a>
 	<a href="signup.php"><Button>SignUp</Button></a><br>
 	<form action="login.php" method="POST">
 
@@ -23,6 +23,9 @@
 
 require "connect.php";
 session_start();
+if($_SESSION['logged'] == true){
+	header("location: clientInterface.html");
+}
 
 if (!isset($_POST['username']) || !isset($_POST['password'])) {
     //echo "Please fill out all fields";
@@ -32,13 +35,13 @@ if (!isset($_POST['username']) || !isset($_POST['password'])) {
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$res = $conn -> query("SELECT * FROM utente WHERE username = '$username' AND password = '$password'") ;
+$res = $conn -> query("SELECT * FROM utenti WHERE username = '$username' AND password = '$password'") ;
 if ($res->num_rows > 0) {
     $row = $res->fetch_array(); 
     $idUtente = $row['ID'];
     $_SESSION['idUtente'] = $idUtente;
     $_SESSION['logged'] = true;
-	header('location: ordinazione.php');
+	header("location: clientInterface.html");
 } else {
     echo "Invalid username or password";
 }

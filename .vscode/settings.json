@@ -1,0 +1,49 @@
+{
+	"sqltools.connections": [
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "DB",
+			"group": "DB",
+			"database": "clienti_rappresentanti",
+			"username": "root",
+			"password": ""
+		},
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "FilmDB",
+			"group": "FilmDB",
+			"database": "FilmDB",
+			"username": "root",
+			"password": ""
+		},
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "Bar",
+			"group": "Bar",
+			"database": "ordini_wen",
+			"username": "root",
+			"password": ""
+		}
+	]
+}
