@@ -18,18 +18,24 @@
 	</form>
 </body>
 </html>
-<?php
 
+<?php
 
 require "connect.php";
 session_start();
-if($_SESSION['logged'] == true){
-	header("location: clientInterface.html");
-}
 
 if (!isset($_POST['username']) || !isset($_POST['password'])) {
-    //echo "Please fill out all fields";
     return;
+}
+
+// Check if username and password match "admin"
+if ($_POST['username'] == "admin" && $_POST['password'] == "admin") {
+    // If matched, set the session variable and redirect to adminInterface.html
+    $_SESSION['logged'] = true;
+    header("location: adminInterface.html");
+} else {
+    // If not matched, redirect to clientInterface.html
+    header("location: clientInterface.html");
 }
 
 $username = $_POST['username'];
@@ -41,7 +47,7 @@ if ($res->num_rows > 0) {
     $idUtente = $row['ID'];
     $_SESSION['idUtente'] = $idUtente;
     $_SESSION['logged'] = true;
-	header("location: clientInterface.html");
+	//header("location: clientInterface.html");
 } else {
     echo "Invalid username or password";
 }
