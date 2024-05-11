@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
                 <th>Bevanda</th>
                 <th>Descrizione Bevanda</th>
                 <th>Costo Bevanda</th>
-                <th>Azioni</th> <!-- New table header for actions -->
+                <th>Azioni</th>
             </tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
                 <td>" . $row["bevanda"] . "</td>
                 <td>" . $row["descrizione_bevanda"] . "</td>
                 <td>" . $row["costo_bevanda"] . "</td>
-                <td><button onclick='deleteOrder(" . $row["ordine_id"] . ")'>Delete</button></td> <!-- Button for deleting row -->
+                <td><button onclick='deleteOrder(" . $row["ordine_id"] . ")'>Delete</button></td>
             </tr>";
     }
     echo "</table>";
