@@ -28,13 +28,10 @@ if (!isset($_POST['username']) || !isset($_POST['password'])) {
     return;
 }
 
-// Check if username and password match "admin"
 if ($_POST['username'] == "admin" && $_POST['password'] == "admin") {
-    // If matched, set the session variable and redirect to adminInterface.html
     $_SESSION['logged'] = true;
     header("location: adminInterface.html");
 } else {
-    // If not matched, redirect to clientInterface.html
     header("location: clientInterface.html");
 }
 
