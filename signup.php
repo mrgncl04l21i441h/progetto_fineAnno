@@ -6,6 +6,11 @@
     <title>SignUp</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #125ca5;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -39,7 +44,7 @@
                                 <input type="password" name="password" class="form-control" placeholder="Password" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Invia</button>
-                            <a href="clientInterface.html" class="btn btn-primary mr-2">Home</a>
+                            <a href="index.html" class="btn btn-primary mr-2">Home</a>
                         </form>
                     </div>
                 </div>
