@@ -17,7 +17,7 @@ if($_SESSION['logged']== true){
 
 
 	<!-- form per aggiungere agli ordini i panini -->
-	<form action="">
+	<form action="invioOrdine.php">
 		<h2>panini</h2>
 		<?php
 		$query=mysqli_query($conn,"SELECT * FROM panini");
