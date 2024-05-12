@@ -1,21 +1,12 @@
 <?php
-<<<<<<< HEAD
 session_start();
 if($_SESSION['logged'] == true){
     require "connect.php";
 ?>
-=======
-
-session_start();
-if($_SESSION['logged']== true){
-	require "connect.php";
-	?>
->>>>>>> 366ad579da8d7b48961759a327a9de78304bc356
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bar</title>
@@ -44,59 +35,57 @@ if($_SESSION['logged']== true){
     </style>
 </head>
 <body>
-    <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-        <div class="container">
-            <a href="clientInterface.html" class="btn btn-primary mb-3">Home</a>
-            <div class="row">
-    <!-- Column for Panini -->
-    <div class="col-md-6">
-        <form action="">
-            <div class="card">
-                <div class="card-header bg-primary text-white text-center">
-                    Panini
-                </div>
-                <div class="card-body">
-                    <?php
-                        $query = mysqli_query($conn, "SELECT * FROM panini");
-                        while ($row = mysqli_fetch_array($query)){
-                        ?>
-                            <div class="form-group">
-                                <label for="panino<?php echo $row['id']; ?>"><?php echo $row['nome']; ?> <?php echo "[".$row['costo']."€]"; ?>: <br><?php echo $row['descrizione']; ?></label>
-                                <input type="number" name="pq<?php echo $row['id']; ?>" min="0" value="0" class="form-control">
-                            </div>
-                        <?php } ?>
-                </div>
+    <div class="container">
+    <a href="clientInterface.html" class="btn btn-primary mb-3">Home</a>
+        <div class="row">
+            <!-- Column for Panini -->
+            <div class="col-md-6">
+                <form action="">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white text-center">
+                            Panini
+                        </div>
+                        <div class="card-body">
+                            <?php
+                                $query = mysqli_query($conn, "SELECT * FROM panini");
+                                while ($row = mysqli_fetch_array($query)){
+                            ?>
+                                    <div class="form-group">
+                                        <label for="panino<?php echo $row['id']; ?>"><?php echo $row['nome']; ?> <?php echo "[".$row['costo']."€]"; ?>: <br><?php echo $row['descrizione']; ?></label>
+                                        <input type="number" name="pq<?php echo $row['id']; ?>" min="0" value="0" class="form-control">
+                                    </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </form>
             </div>
-    </div>
 
-    <!-- Column for Bevande -->
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header bg-primary text-white text-center">
-                Bevande
-            </div>
-            <div class="card-body">
-            <?php
-                        $query = mysqli_query($conn, "SELECT * FROM bevande");
-                        while ($row = mysqli_fetch_array($query)){
+            <!-- Column for Bevande -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-center">
+                        Bevande
+                    </div>
+                    <div class="card-body">
+                        <?php
+                            $query = mysqli_query($conn, "SELECT * FROM bevande");
+                            while ($row = mysqli_fetch_array($query)){
                         ?>
-                            <div class="form-group">
-                                <label for="bevanda<?php echo $row['id']; ?>"><?php echo $row['nome']; ?> <?php echo "[".$row['costo']."€]"; ?>: <br><?php echo $row['descrizione']; ?></label>;
-                                <input type="number" name="bq_<?php echo $row['id']; ?>" min="0" value="0" class="form-control">
-                            </div>
+                                <div class="form-group">
+                                    <label for="bevanda<?php echo $row['id']; ?>"><?php echo $row['nome']; ?> <?php echo "[".$row['costo']."€]"; ?>: <br><?php echo $row['descrizione']; ?></label>
+                                    <input type="number" name="bq_<?php echo $row['id']; ?>" min="0" value="0" class="form-control">
+                                </div>
                         <?php } ?>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="form-group mt-3">
+        <label for="data">Data:</label>
+        <input type="datetime-local" name="data" required class="form-control">
     </div>
-</div>
-                <div class="form-group mt-3">
-                    <label for="data">Data:</label>
-                    <input type="datetime-local" name="data" required class="form-control">
-                </div>
 
-                <input type="submit" value="aggiungi" class="btn btn-success btn-block">
-            </form>
-        </div>
+    <input type="submit" value="aggiungi" class="btn btn-success btn-block">
     </div>
 </body>
 </html>
@@ -117,57 +106,3 @@ if($_SESSION['logged']== true){
     </html>
 
 <?php } ?>
-=======
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bar</title>
-</head>
-<body>
-	<a href="index.html"><Button>Home</Button></a>
-
-
-	<!-- form per aggiungere agli ordini i panini -->
-	<form action="invioOrdine.php">
-		<h2>panini</h2>
-		<?php
-		$query=mysqli_query($conn,"SELECT * FROM panini");
-		while ($row=mysqli_fetch_array($query)){
-			echo "<label for=\"panino_" . $row['id'] . "\">" . $row['nome'] . ":</label>";
-			echo "<input type=\"number\" name=\"pq_" . $row['id'] . "\" min=\"0\" value=\"0\"><br>";
-		} ?>
-
-		<h2>Bevande</h2>
-		<?php
-		$query=mysqli_query($conn,"SELECT * FROM bevande");
-		while ($row=mysqli_fetch_array($query)){
-			echo "<label for=\"bevanda_" . $row['id'] . "\">" . $row['nome'] . ":</label>";
-			echo "<input type=\"number\" name=\"bq_" . $row['id'] . "\" min=\"0\" value=\"0\"><br>";
-		} ?>
-
-		<input type="datetime-local" name="data" required>
-
-		<input type="submit" value="aggiungi">
-	</form>
-		
-</body>
-</html>
-
-<?php }else{ ?>
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-	</head>
-	<body>
-		<p href="login.php">sei stronzo e non loggato</p>
-		<button href="index.html">home</button>
-		
-	</body>
-	</html>
-
-<?php 
-	}
-?>
->>>>>>> 366ad579da8d7b48961759a327a9de78304bc356
