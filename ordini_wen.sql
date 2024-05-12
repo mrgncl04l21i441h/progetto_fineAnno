@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Creato il: Mag 07, 2024 alle 09:05
--- Versione del server: 10.4.28-MariaDB
--- Versione PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: May 12, 2024 at 09:58 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `bevande`
+-- Table structure for table `bevande`
 --
 
 CREATE TABLE `bevande` (
@@ -35,17 +35,30 @@ CREATE TABLE `bevande` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `bevande`
+-- Dumping data for table `bevande`
 --
 
 INSERT INTO `bevande` (`id`, `nome`, `costo`, `descrizione`) VALUES
 (1, 'Acqua minerale', 1, 'Bottiglia d\'acqua minerale naturale'),
-(2, 'Coca-Cola', 2, 'Bottiglia di Coca-Cola 33cl');
+(2, 'Coca-Cola', 2, 'Bottiglia di Coca-Cola 33cl'),
+(3, 'Aranciata', 2, 'Bottiglia di aranciata 33cl'),
+(4, 'Acqua tonica', 2, 'Bottiglia di acqua tonica 33cl'),
+(5, 'Sprite', 2, 'Bottiglia di Sprite 33cl'),
+(6, 'Fanta', 2, 'Bottiglia di Fanta 33cl'),
+(7, 'Acqua frizzante', 1, 'Bottiglia di acqua frizzante 33cl'),
+(8, 'Birra', 4, 'Bottiglia di birra 33cl'),
+(9, 'Limonata', 2, 'Bottiglia di limonata 33cl'),
+(10, 'Te freddo', 3, 'Bottiglia di tè freddo al limone 33cl'),
+(11, 'Succhi di frutta', 2, 'Bottiglia di succo di frutta 33cl'),
+(12, 'Vino rosso', 5, 'Bottiglia di vino rosso 33cl'),
+(13, 'Vino bianco', 5, 'Bottiglia di vino bianco 33cl'),
+(14, 'Caffè', 2, 'Tazzina di caffè espresso'),
+(15, 'Cioccolata calda', 3, 'Tazzina di cioccolata calda');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `bevande_ordinate`
+-- Table structure for table `bevande_ordinate`
 --
 
 CREATE TABLE `bevande_ordinate` (
@@ -56,7 +69,7 @@ CREATE TABLE `bevande_ordinate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `bevande_ordinate`
+-- Dumping data for table `bevande_ordinate`
 --
 
 INSERT INTO `bevande_ordinate` (`id`, `id_ordine`, `id_bevanda`, `quantità`) VALUES
@@ -66,7 +79,7 @@ INSERT INTO `bevande_ordinate` (`id`, `id_ordine`, `id_bevanda`, `quantità`) VA
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `ordini`
+-- Table structure for table `ordini`
 --
 
 CREATE TABLE `ordini` (
@@ -77,7 +90,7 @@ CREATE TABLE `ordini` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `ordini`
+-- Dumping data for table `ordini`
 --
 
 INSERT INTO `ordini` (`id`, `id_utente`, `ora_ritiro`, `ora_prenotazione`) VALUES
@@ -87,7 +100,7 @@ INSERT INTO `ordini` (`id`, `id_utente`, `ora_ritiro`, `ora_prenotazione`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `panini`
+-- Table structure for table `panini`
 --
 
 CREATE TABLE `panini` (
@@ -98,17 +111,30 @@ CREATE TABLE `panini` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `panini`
+-- Dumping data for table `panini`
 --
 
 INSERT INTO `panini` (`id`, `nome`, `costo`, `descrizione`) VALUES
 (1, 'Panino al salame', 5, 'Panino con salame, formaggio, lattuga e pomodoro'),
-(2, 'Panino vegetariano', 4, 'Panino con verdure grigliate, formaggio e salsa al pesto');
+(2, 'Panino vegetariano', 4, 'Panino con verdure grigliate, formaggio e salsa al pesto'),
+(3, 'Panino al prosciutto', 6, 'Panino con prosciutto, mozzarella, rucola e pomodoro'),
+(4, 'Panino al tonno', 5, 'Panino con tonno, maionese, lattuga e cipolla'),
+(5, 'Panino con pollo', 6, 'Panino con pollo grigliato, formaggio, insalata e salsa BBQ'),
+(6, 'Panino al salmone', 7, 'Panino con salmone affumicato, formaggio spalmabile, cetrioli e rucola'),
+(7, 'Panino al prosciutto e formaggio', 6, 'Panino con prosciutto cotto, formaggio cheddar, lattuga e pomodoro'),
+(8, 'Panino vegetariano piccante', 5, 'Panino con falafel, formaggio feta, peperoncini, lattuga e salsa piccante'),
+(9, 'Panino con melanzane alla griglia', 5, 'Panino con melanzane grigliate, mozzarella, pomodori secchi e rucola'),
+(10, 'Panino con pollo e avocado', 7, 'Panino con petto di pollo alla griglia, avocado, formaggio brie e lattuga'),
+(11, 'Panino al tacchino', 6, 'Panino con tacchino affumicato, formaggio provola, maionese, lattuga e cetrioli'),
+(12, 'Panino con roast beef', 7, 'Panino con roast beef, formaggio gorgonzola, cipolle caramellate e rucola'),
+(13, 'Panino con pesto di pomodori secchi', 6, 'Panino con pesto di pomodori secchi, mozzarella, lattuga e pomodoro'),
+(14, 'Panino con speck e stracchino', 6, 'Panino con speck, stracchino, rucola e aceto balsamico'),
+(15, 'Panino al salame piccante', 6, 'Panino con salame piccante, formaggio asiago, peperoncini, lattuga e salsa chili');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `panini_ordinati`
+-- Table structure for table `panini_ordinati`
 --
 
 CREATE TABLE `panini_ordinati` (
@@ -119,7 +145,7 @@ CREATE TABLE `panini_ordinati` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `panini_ordinati`
+-- Dumping data for table `panini_ordinati`
 --
 
 INSERT INTO `panini_ordinati` (`id`, `id_ordine`, `id_panino`, `quantità`) VALUES
@@ -130,7 +156,7 @@ INSERT INTO `panini_ordinati` (`id`, `id_ordine`, `id_panino`, `quantità`) VALU
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `utenti`
+-- Table structure for table `utenti`
 --
 
 CREATE TABLE `utenti` (
@@ -146,92 +172,96 @@ CREATE TABLE `utenti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `utenti`
+-- Dumping data for table `utenti`
 --
 
 INSERT INTO `utenti` (`ID`, `nome`, `cognome`, `data_nascita`, `telefono`, `email`, `username`, `password`, `data_iscrizione`) VALUES
 (1, 'Mario', 'Rossi', '1990-05-15', '+123456789', 'mario.rossi@example.com', 'mario_rossi', 'password123', '2024-05-01 10:00:00'),
-(2, 'Laura', 'Bianchi', '1985-08-20', '+987654321', 'laura.bianchi@example.com', 'laura_bianchi', 'securepwd', '2024-05-02 11:30:00');
+(2, 'Laura', 'Bianchi', '1985-08-20', '+987654321', 'laura.bianchi@example.com', 'laura_bianchi', 'securepwd', '2024-05-02 11:30:00'),
+(5, 'hao', 'hao', '2004-12-04', '+3032903203', 'aw0-923@gmail.com', 'hao', 'hao', '2024-05-09 21:04:25'),
+(6, 'hao', 'hao', '2004-12-04', '+3032903203', 'aw0-923@gmail.com', 'hao', 'hao', '2024-05-09 21:05:17'),
+(7, 'admin', 'admin', '1111-11-11', '11111111', 'admin@admin.com', 'admin', 'admin', '2024-05-11 16:20:15'),
+(8, 'wen', 'wen', '1111-11-11', '1234567819', 'wen@libero.it', 'wen', 'wen', '2024-05-12 12:50:31');
 
 --
--- Indici per le tabelle scaricate
+-- Indexes for dumped tables
 --
 
 --
--- Indici per le tabelle `bevande`
+-- Indexes for table `bevande`
 --
 ALTER TABLE `bevande`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `bevande_ordinate`
+-- Indexes for table `bevande_ordinate`
 --
 ALTER TABLE `bevande_ordinate`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `ordini`
+-- Indexes for table `ordini`
 --
 ALTER TABLE `ordini`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `panini`
+-- Indexes for table `panini`
 --
 ALTER TABLE `panini`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `panini_ordinati`
+-- Indexes for table `panini_ordinati`
 --
 ALTER TABLE `panini_ordinati`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `utenti`
+-- Indexes for table `utenti`
 --
 ALTER TABLE `utenti`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT per le tabelle scaricate
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT per la tabella `bevande`
+-- AUTO_INCREMENT for table `bevande`
 --
 ALTER TABLE `bevande`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT per la tabella `bevande_ordinate`
+-- AUTO_INCREMENT for table `bevande_ordinate`
 --
 ALTER TABLE `bevande_ordinate`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT per la tabella `ordini`
+-- AUTO_INCREMENT for table `ordini`
 --
 ALTER TABLE `ordini`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codice univoco per identificare l''entità', AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT per la tabella `panini`
+-- AUTO_INCREMENT for table `panini`
 --
 ALTER TABLE `panini`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT per la tabella `panini_ordinati`
+-- AUTO_INCREMENT for table `panini_ordinati`
 --
 ALTER TABLE `panini_ordinati`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT per la tabella `utenti`
+-- AUTO_INCREMENT for table `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Codice univoco per identificare l''entità', AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

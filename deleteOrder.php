@@ -1,21 +1,24 @@
 <?php
 require "connect.php";
 
-// Ottieni l'ID dell'ordine da eliminare dalla richiesta GET
-$ordineId = $_GET["ordine_id"];
+$ordineId = $_POST["ordine"];
 
-// Prepara le query di eliminazione
-$deleteOrdineQuery = "DELETE FROM ordini WHERE id = $ordineId";
-$deletePaniniOrdinatiQuery = "DELETE FROM panini_ordinati WHERE id_ordine = $ordineId";
-$deleteBevandeOrdinateQuery = "DELETE FROM bevande_ordinate WHERE id_ordine = $ordineId";
+if (isset($ordineId)) {
 
-if ($conn->query($deleteOrdineQuery) === TRUE &&
-    $conn->query($deletePaniniOrdinatiQuery) === TRUE &&
-    $conn->query($deleteBevandeOrdinateQuery) === TRUE) {
-    echo "Ordine eliminato con successo.";
+    // Prepara le query di eliminazione
+    $deleteOrdineQuery = "DELETE FROM ordini WHERE id = $ordineId;";
+    $deletePaniniOrdinatiQuery = "DELETE FROM panini_ordinati WHERE id_ordine = $ordineId;";
+    $deleteBevandeOrdinateQuery = "DELETE FROM bevande_ordinate WHERE id_ordine = $ordineId;";
+
+    if ($conn->query($deleteOrdineQuery) === TRUE &&
+        $conn->query($deletePaniniOrdinatiQuery) === TRUE &&
+        $conn->query($deleteBevandeOrdinateQuery) === TRUE) {
+        echo 'Ordine eliminato con successo. \n <button href="viewOrders.php">';
+    } else {
+        echo "Errore durante l'eliminazione dell'ordine: " . $conn->error . '\n<button href="viewOrders.php">';
+    }
 } else {
-    echo "Errore durante l'eliminazione dell'ordine: " . $conn->error;
+    echo "non prende ordine diobestia";
 }
-
 $conn->close();
 ?>

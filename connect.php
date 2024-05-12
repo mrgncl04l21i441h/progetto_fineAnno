@@ -1,7 +1,7 @@
 <?php
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpassword = "";
+$dbpassword = "root";
 $dbname = "ordini_wen";
 $dbport = 3306;
 
