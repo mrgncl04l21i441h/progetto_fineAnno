@@ -1,14 +1,12 @@
 <?php
-
 require "connect.php";
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-if (isset($username) && isset($password)) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
     
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    if ($username == "admin" && $password == "admin") {
+    if ($_POST['username'] == "admin" && $_POST['password'] == "admin") {
         session_start();
         $_SESSION['logged'] = true;
         header("location: adminInterface.html");
@@ -29,6 +27,7 @@ if (isset($username) && isset($password)) {
         }
     }
 }else{
+    //echo "errore nei dati";
     header("location: login.html");
 }
 ?>

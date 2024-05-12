@@ -19,17 +19,13 @@ $deleteOrdineQuery = "DELETE FROM ordini WHERE id = $ordineId";
 $deletePaniniOrdinatiQuery = "DELETE FROM panini_ordinati WHERE id_ordine = $ordineId";
 $deleteBevandeOrdinateQuery = "DELETE FROM bevande_ordinate WHERE id_ordine = $ordineId";
 
-// Esegui le query di eliminazione
 if ($conn->query($deleteOrdineQuery) === TRUE &&
     $conn->query($deletePaniniOrdinatiQuery) === TRUE &&
     $conn->query($deleteBevandeOrdinateQuery) === TRUE) {
-    // Operazione di eliminazione completata con successo
     echo "Ordine eliminato con successo.";
 } else {
-    // Gestione degli errori in caso di fallimento delle query di eliminazione
     echo "Errore durante l'eliminazione dell'ordine: " . $conn->error;
 }
 
-// Chiudi la connessione al database
 $conn->close();
 ?>
