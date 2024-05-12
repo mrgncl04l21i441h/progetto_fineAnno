@@ -40,7 +40,7 @@ if($_SESSION['logged'] == true){
         <div class="row">
             <!-- Column for Panini -->
             <div class="col-md-6">
-                <form action="">
+                <form action="invioOrdine.php" method="post">
                     <div class="card">
                         <div class="card-header bg-primary text-white text-center">
                             Panini
@@ -52,12 +52,11 @@ if($_SESSION['logged'] == true){
                             ?>
                                     <div class="form-group">
                                         <label for="panino<?php echo $row['id']; ?>"><?php echo $row['nome']; ?> <?php echo "[".$row['costo']."€]"; ?>: <br><?php echo $row['descrizione']; ?></label>
-                                        <input type="number" name="pq<?php echo $row['id']; ?>" min="0" value="0" class="form-control">
+                                        <input type="number" name="pq_<?php echo $row['id']; ?>" min="0" value="0" class="form-control">
                                     </div>
                             <?php } ?>
                         </div>
                     </div>
-                </form>
             </div>
 
             <!-- Column for Bevande -->
@@ -70,24 +69,25 @@ if($_SESSION['logged'] == true){
                         <?php
                             $query = mysqli_query($conn, "SELECT * FROM bevande");
                             while ($row = mysqli_fetch_array($query)){
-                        ?>
+                                ?>
                                 <div class="form-group">
                                     <label for="bevanda<?php echo $row['id']; ?>"><?php echo $row['nome']; ?> <?php echo "[".$row['costo']."€]"; ?>: <br><?php echo $row['descrizione']; ?></label>
                                     <input type="number" name="bq_<?php echo $row['id']; ?>" min="0" value="0" class="form-control">
                                 </div>
-                        <?php } ?>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group mt-3">
-        <label for="data">Data:</label>
-        <input type="datetime-local" name="data" required class="form-control">
-    </div>
+                <div class="form-group mt-3">
+                    <label for="data">Data:</label>
+                    <input type="datetime-local" name="data" required class="form-control">
+                </div>
 
-    <input type="submit" value="aggiungi" class="btn btn-success btn-block">
-    </div>
-</body>
+                <input type="submit" value="aggiungi" class="btn btn-success btn-block">
+            </div>
+        </form>
+    </body>
 </html>
 
 <?php } else { ?>
