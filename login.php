@@ -10,6 +10,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         session_start();
         $_SESSION['logged'] = true;
         header("location: adminInterface.html");
+        
     } else {
 
         $res = $conn -> query("SELECT * FROM utenti WHERE username = '$username' AND password = '$password'");
@@ -20,6 +21,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $_SESSION['idUtente'] = $idUtente;
             $_SESSION['logged'] = true;
             header("location: clientInterface.html");
+            
         } else {
             echo "Invalid username or password";
         }
