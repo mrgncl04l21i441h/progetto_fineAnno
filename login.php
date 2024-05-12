@@ -2,14 +2,13 @@
 
 require "connect.php";
 
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($username) && isset($password)) {
     
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if ($_POST['username'] == "admin" && $_POST['password'] == "admin") {
+    if ($username == "admin" && $password == "admin") {
         session_start();
         $_SESSION['logged'] = true;
         //header("location: adminInterface.html");
