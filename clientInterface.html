@@ -4,10 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Interface</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #125ca5;
+        }
+        .card {
+            background-color: #666869;
+            border: 2px solid #007bff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 15px 15px 0 0;
+            font-size: 24px;
+            padding: 20px 0;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 25px;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            border-radius: 25px;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+        .lead {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Bar</h1>
-    <a href="ordinazione.html"><button>Ordina</button></a><br>
-    <a href="logout.php"><button>Log Out</button></a>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h1>Welcome to the Bar</h1>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="ordinazione.html" class="btn btn-primary btn-lg btn-block mb-3">Ordina</a>
+                        <a href="logout.php" class="btn btn-danger btn-lg btn-block">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

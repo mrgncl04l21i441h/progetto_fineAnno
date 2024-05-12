@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	
+
 </head>
 <body>
-	<a href="index.html"><Button>Home</Button></a>
-	<a href="login.php"><Button>LogIn</Button></a><br>
-	<hr>
-	Ordina
-	<form action="ordinazioe.php" method="post">
-		<input type="text" name="nome" id="nome" placeholder="nome" maxlength="nome" required><br>
-		<!--
-		Data <input type="date" name="date" id="date" required>
-		Ora <input type="time" name="time" id="time" required><br>
-		<-->
-		<label for="panini">Panino</label>
-			<select id="curtain-scale" name="curtain-scale">
-			<option value="small">Small</option>
-			<option value="medium">Medium</option>
-			<option value="large">Large</option>
-			<option value="extra-large">Extra Large</option>
-		</select>
-
-		<label for="size">Grandezza</label>
-			<select id="curtain-scale" name="curtain-scale">
-			<option value="small">Small</option>
-			<option value="medium">Medium</option>
-			<option value="large">Large</option>
-			<option value="extra-large">Extra Large</option>
-		</select>
-
-		<input type="number" name="count" id="count" placeholder="Numero panini" required> <br><br>
-		<input type="textarea" name="preferenze" id="preferenze" placeholder="Cosa desideri nel panino in aggiunta"  required>
-		<input id="submitButton" type="submit" value="Ordina">
-	</form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <a href="clientInterface.html" class="btn btn-primary mr-2">Home</a>
+                <hr>
+                <h3 class="text-center">Ordina</h3>
+                <form action="ordinazioe.php" method="post">
+                    <div class="form-group">
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="panini">Panino</label>
+                        <select id="panini" name="panini" class="form-control">
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                            <option value="extra-large">Extra Large</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Grandezza</label>
+                        <select id="size" name="size" class="form-control">
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                            <option value="extra-large">Extra Large</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="count" id="count" class="form-control" placeholder="Numero panini" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="textarea" name="preferenze" id="preferenze" class="form-control" placeholder="Cosa desideri nel panino in aggiunta" required>
+                    </div>
+                    <input id="submitButton" type="submit" value="Ordina" class="btn btn-primary btn-block">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-
