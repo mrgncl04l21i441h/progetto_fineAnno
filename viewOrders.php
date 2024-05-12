@@ -27,32 +27,27 @@ if ($result->num_rows > 0) {
                 <th>Azioni</th>
             </tr>";
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>
-                <td>" . $row["ordine_id"] . "</td>
-                <td>" . $row["id_utente"] . "</td>
-                <td>" . $row["nome_utente"] . "</td>
-                <td>" . $row["cognome_utente"] . "</td>
-                <td>" . $row["panino"] . "</td>
-                <td>" . $row["descrizione_panino"] . "</td>
-                <td>" . $row["costo_panino"] . "</td>
-                <td>" . $row["bevanda"] . "</td>
-                <td>" . $row["descrizione_bevanda"] . "</td>
-                <td>" . $row["costo_bevanda"] . "</td>
-                <td><button onclick='deleteOrder(" . $row["ordine_id"] . ")'>Delete</button></td>
-            </tr>";
+        echo '<form action="deleteOrd.php" method="post">
+                <tr>
+                    <td><input type="radio" name="id" value"'.$row['id'].'"></td>
+                    <td>' . $row["ordine_id"] . '</td>
+                    <td>' . $row["id_utente"] . '</td>
+                    <td>' . $row["nome_utente"] . '</td>
+                    <td>' . $row["cognome_utente"] . '</td>
+                    <td>' . $row["panino"] . '</td>
+                    <td>' . $row["descrizione_panino"] . '</td>
+                    <td>' . $row["costo_panino"] . '</td>
+                    <td>' . $row["bevanda"] . '</td>
+                    <td>' . $row["descrizione_bevanda"] . '</td>
+                    <td>' . $row["costo_bevanda"] . '</td>
+                    
+                </tr>
+              </form>';
     }
-    echo "</table>";
+    echo '</table><input type="submit">';
 } else {
     echo "Nessun risultato trovato.";
 }
 echo "<button><a href='adminInterface.html'>Menu</a></button>";
 $conn->close();
 ?>
-
-<script>
-    function deleteOrder(ordineId) {
-        if (confirm("Sei sicuro di voler eliminare questo ordine?")) {
-        }
-    }
-</script>
-

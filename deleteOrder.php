@@ -1,15 +1,5 @@
 <?php
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpassword = "";
-$dbname = "ordini_wen";
-$dbport = 3306;
-
-// Connessione al database
-$conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
-if ($conn->connect_error) {
-    die("Connessione fallita: " . $conn->connect_error);
-}
+require "connect.php";
 
 // Ottieni l'ID dell'ordine da eliminare dalla richiesta GET
 $ordineId = $_GET["ordine_id"];
