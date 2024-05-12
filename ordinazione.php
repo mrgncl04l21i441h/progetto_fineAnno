@@ -13,7 +13,7 @@ if($_SESSION['logged']== true){
 	<title>Bar</title>
 </head>
 <body>
-	<a href="home.html"><Button>Home</Button></a>
+	<a href="index.html"><Button>Home</Button></a>
 
 
 	<!-- form per aggiungere agli ordini i panini -->
