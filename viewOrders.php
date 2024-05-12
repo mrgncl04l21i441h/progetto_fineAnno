@@ -1,15 +1,5 @@
 <?php
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpassword = "";
-$dbname = "ordini_wen";
-$dbport = 3306;
-
-$conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
-
-if ($conn->connect_error) {
-    die("Errore di connessione al database: " . $conn->connect_error);
-}
+require "connect.php";
 
 $sql = "SELECT ordini.id AS ordine_id, ordini.id_utente, utenti.nome AS nome_utente, utenti.cognome AS cognome_utente, panini.nome AS panino, panini.descrizione AS descrizione_panino, panini.costo AS costo_panino, bevande.nome AS bevanda, bevande.descrizione AS descrizione_bevanda, bevande.costo AS costo_bevanda
         FROM ordini
